@@ -225,7 +225,7 @@ body {
     margin: 0 auto;
 }
 
-/* Sección de bienvenida */
+/* Sección de bienvenida mejorada */
 .welcome-section {
     text-align: center;
     padding: 60px 0 80px;
@@ -236,10 +236,28 @@ body {
     font-size: 3.2rem;
     margin-bottom: 30px;
     color: #00ffff;
-    text-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
     font-weight: 900;
     position: relative;
     display: inline-block;
+}
+
+.welcome-title .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+    text-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    animation: letterAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes letterAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+        text-shadow: 
+            0 0 25px rgba(0, 255, 255, 0.8),
+            0 0 35px rgba(0, 255, 136, 0.6),
+            0 0 45px rgba(0, 255, 255, 0.4);
+    }
 }
 
 .welcome-title::after {
@@ -253,6 +271,39 @@ body {
     background: linear-gradient(90deg, #00ff88, #00ffff, #00ff88);
     border-radius: 2px;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    opacity: 0;
+    animation: underlineAppear 0.6s ease-in-out 1.2s forwards;
+}
+
+@keyframes underlineAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+.welcome-subtitle {
+    font-size: 1.3rem;
+    color: #ccc;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: subtitleAppear 0.8s ease-out 1.5s forwards;
+}
+
+.subtitle-text {
+    background: linear-gradient(135deg, #00ffff, #00ff88, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+@keyframes subtitleAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Sección de proyectos mejorada */
@@ -634,7 +685,83 @@ body {
     font-weight: 700;
 }
 
-/* Footer */
+/* Sección de contacto */
+.contact-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, 
+        rgba(0, 255, 255, 0.08) 0%, 
+        rgba(0, 255, 136, 0.04) 50%, 
+        rgba(0, 255, 255, 0.08) 100%);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.contact-section h2 {
+    color: #00ffff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    font-weight: 700;
+    position: relative;
+}
+
+.contact-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #00ff88, #00ffff, #00ff88);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.contact-info {
+    margin-bottom: 50px;
+    color: #ccc;
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.contact-info .email {
+    color: #00ff88;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+}
+
+.contact-info .location {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+/* Footer completo */
 .footer {
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
@@ -658,24 +785,32 @@ body {
     font-weight: 700;
 }
 
-.contact-info {
+.footer .contact-info {
     margin-bottom: 40px;
     color: #ccc;
     font-size: 1.1rem;
     line-height: 1.8;
 }
 
-.contact-info p {
+.footer .contact-info p {
     margin-bottom: 10px;
 }
 
-.contact-info .email {
+.footer .contact-info .email {
     color: #00ff88;
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
     font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.contact-info .location {
+.footer .contact-info .email:hover {
+    color: #00ffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    transform: scale(1.02);
+}
+
+.footer .contact-info .location {
     color: #00ffff;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
@@ -751,13 +886,6 @@ body {
     background: rgba(240, 246, 252, 0.1);
     border-color: #f0f6fc;
     box-shadow: 0 15px 30px rgba(240, 246, 252, 0.3);
-}
-
-.social-link.email:hover {
-    color: #00ff88;
-    background: rgba(0, 255, 136, 0.1);
-    border-color: #00ff88;
-    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.3);
 }
 
 .copyright {
@@ -843,6 +971,11 @@ body {
         font-size: 2.5rem;
     }
 
+    .welcome-subtitle {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+
     .main-content {
         margin-top: 90px;
     }
@@ -887,11 +1020,29 @@ body {
         grid-template-columns: 1fr;
         gap: 25px;
     }
+
+    .contact-section {
+        padding: 40px 25px;
+        margin: 0 10px;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .contact-info .email {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
     .welcome-title {
         font-size: 2rem;
+    }
+
+    .welcome-subtitle {
+        font-size: 1rem;
+        padding: 0 15px;
     }
 
     .projects-grid {
@@ -926,5 +1077,15 @@ body {
         width: 50px;
         height: 50px;
         font-size: 1.4rem;
+    }
+
+    .contact-section {
+        padding: 30px 20px;
+        margin: 0 5px;
+    }
+
+    .contact-info .email {
+        font-size: 1.1rem;
+        word-break: break-all;
     }
 }
