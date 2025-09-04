@@ -313,8 +313,8 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
     margin-top: 50px;
 }
 
@@ -559,102 +559,6 @@ body {
     background: rgba(138, 43, 226, 0.2);
     border-color: #8a2be2;
     box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
-}
-
-.tech-item.react {
-    background: rgba(97, 218, 251, 0.1);
-    border-color: rgba(97, 218, 251, 0.4);
-    color: #61dafb;
-}
-
-.tech-item.react:hover {
-    background: rgba(97, 218, 251, 0.2);
-    border-color: #61dafb;
-    box-shadow: 0 8px 25px rgba(97, 218, 251, 0.4);
-}
-
-.tech-item.node {
-    background: rgba(104, 160, 99, 0.1);
-    border-color: rgba(104, 160, 99, 0.4);
-    color: #68a063;
-}
-
-.tech-item.node:hover {
-    background: rgba(104, 160, 99, 0.2);
-    border-color: #68a063;
-    box-shadow: 0 8px 25px rgba(104, 160, 99, 0.4);
-}
-
-.tech-item.mongo {
-    background: rgba(71, 162, 72, 0.1);
-    border-color: rgba(71, 162, 72, 0.4);
-    color: #47a248;
-}
-
-.tech-item.mongo:hover {
-    background: rgba(71, 162, 72, 0.2);
-    border-color: #47a248;
-    box-shadow: 0 8px 25px rgba(71, 162, 72, 0.4);
-}
-
-.tech-item.css {
-    background: rgba(21, 114, 182, 0.1);
-    border-color: rgba(21, 114, 182, 0.4);
-    color: #1572b6;
-}
-
-.tech-item.css:hover {
-    background: rgba(21, 114, 182, 0.2);
-    border-color: #1572b6;
-    box-shadow: 0 8px 25px rgba(21, 114, 182, 0.4);
-}
-
-.tech-item.flutter {
-    background: rgba(84, 175, 238, 0.1);
-    border-color: rgba(84, 175, 238, 0.4);
-    color: #54afee;
-}
-
-.tech-item.flutter:hover {
-    background: rgba(84, 175, 238, 0.2);
-    border-color: #54afee;
-    box-shadow: 0 8px 25px rgba(84, 175, 238, 0.4);
-}
-
-.tech-item.firebase {
-    background: rgba(255, 193, 7, 0.1);
-    border-color: rgba(255, 193, 7, 0.4);
-    color: #ffc107;
-}
-
-.tech-item.firebase:hover {
-    background: rgba(255, 193, 7, 0.2);
-    border-color: #ffc107;
-    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
-}
-
-.tech-item.dart {
-    background: rgba(0, 180, 216, 0.1);
-    border-color: rgba(0, 180, 216, 0.4);
-    color: #00b4d8;
-}
-
-.tech-item.dart:hover {
-    background: rgba(0, 180, 216, 0.2);
-    border-color: #00b4d8;
-    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
-}
-
-.tech-item.api {
-    background: rgba(255, 87, 34, 0.1);
-    border-color: rgba(255, 87, 34, 0.4);
-    color: #ff5722;
-}
-
-.tech-item.api:hover {
-    background: rgba(255, 87, 34, 0.2);
-    border-color: #ff5722;
-    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.4);
 }
 
 /* Secciones ocultas */
@@ -915,7 +819,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .social-link {

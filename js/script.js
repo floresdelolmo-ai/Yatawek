@@ -241,48 +241,59 @@ function createParticleEffect() {
 
 // Efectos adicionales para mejorar la experiencia
 function addExtraEffects() {
-    // Efecto de hover mejorado para las tarjetas de proyecto
+    // Efecto de hover mejorado para las 4 tarjetas de proyecto
     const projectCards = document.querySelectorAll('.project-card');
     
-    projectCards.forEach(card => {
+    projectCards.forEach((card, index) => {
+        // Animación de entrada escalonada
+        card.style.animationDelay = `${index * 0.15}s`;
+        
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-15px) scale(1.02)';
             this.style.boxShadow = '0 25px 50px rgba(0, 255, 255, 0.2), 0 15px 30px rgba(0, 255, 136, 0.1)';
+            
+            // Efecto de brillo en las tech-items
+            const techItems = this.querySelectorAll('.tech-item');
+            techItems.forEach((item, i) => {
+                setTimeout(() => {
+                    item.style.transform = 'translateY(-2px) scale(1.05)';
+                }, i * 50);
+            });
         });
         
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
             this.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+            
+            // Resetear tech-items
+            const techItems = this.querySelectorAll('.tech-item');
+            techItems.forEach(item => {
+                item.style.transform = 'translateY(0) scale(1)';
+            });
         });
     });
     
-    // Efecto de typing para elementos de texto
-    function typeWriter(element, text, speed = 50) {
-        if (!element) return;
-        
-        element.innerHTML = '';
-        let i = 0;
-        
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        type();
-    }
-    
-    // Efecto de parallax suave
+    // Efecto parallax mejorado
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.welcome-section');
+        const welcomeSection = document.querySelector('.welcome-section');
         
-        parallaxElements.forEach(element => {
-            const speed = 0.2;
-            element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
+        if (welcomeSection) {
+            const speed = 0.3;
+            welcomeSection.style.transform = `translateY(${scrolled * speed}px)`;
+        }
+        
+        // Efecto de fade en proyectos al hacer scroll
+        const projectsSection = document.querySelector('.projects-section');
+        if (projectsSection) {
+            const rect = projectsSection.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isVisible) {
+                const opacity = Math.max(0, Math.min(1, 1 - (Math.abs(rect.top) / window.innerHeight)));
+                projectsSection.style.opacity = opacity;
+            }
+        }
     });
 }
 
@@ -393,13 +404,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Crear efecto de partículas (opcional, comentado para mejor rendimiento)
     // createParticleEffect();
     
-    // Agregar event listener para copiar email (tanto en sección como en footer)
-    const emailElements = document.querySelectorAll('.contact-info .email');
-    emailElements.forEach(emailElement => {
+    // Agregar event listener para copiar email (solo en sección contacto)
+    const emailElement = document.querySelector('#contacto .contact-info .email');
+    if (emailElement) {
         emailElement.style.cursor = 'pointer';
         emailElement.title = 'Clic para copiar';
         emailElement.addEventListener('click', copyEmailToClipboard);
-    });
+    }
     
     // Precargar imágenes y recursos
     const preloadImages = [
