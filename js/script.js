@@ -47,7 +47,16 @@ function showHome() {
 
 // Abrir proyecto de Power BI
 function openProject(url) {
+    if (url === '#') {
+        showNotification('Proyecto en desarrollo', 'info');
+        return;
+    }
     window.open(url, '_blank', 'width=1200,height=800');
+}
+
+// Función para scroll a contacto
+function scrollToContact() {
+    showSection('contacto');
 }
 
 // Actualizar navegación activa
@@ -77,7 +86,6 @@ function closeMenu() {
 function initWelcomeAnimations() {
     const letters = document.querySelectorAll('.welcome-title .letter');
     const subtitle = document.querySelector('.welcome-subtitle');
-    const underline = document.querySelector('.welcome-title::after');
 
     // Resetear animaciones
     letters.forEach(letter => {
@@ -104,217 +112,47 @@ function initWelcomeAnimations() {
     }
 }
 
-// Cerrar menú al hacer clic fuera
-document.addEventListener('click', function(event) {
-    const nav = document.querySelector('.nav');
-    const hamburger = document.querySelector('.hamburger');
+// Función para manejar el envío del formulario
+function handleFormSubmit() {
+    const form = document.getElementById('contactForm');
     
-    if (nav.classList.contains('active') && 
-        !nav.contains(event.target) && 
-        !hamburger.contains(event.target)) {
-        closeMenu();
-    }
-});
-
-// Cerrar menú al redimensionar ventana
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-        closeMenu();
-    }
-});
-
-// Inicialización
-document.addEventListener('DOMContentLoaded', function() {
-    // Activar navegación de inicio
-    updateActiveNav('home');
-    
-    // Inicializar animaciones de bienvenida
-    setTimeout(initWelcomeAnimations, 500);
-    
-    // Smooth scroll para todos los enlaces internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevenir el comportamiento por defecto
+            
+            // Obtener valores del formulario
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Validar que todos los campos estén llenos
+            if (!name || !email || !subject || !message) {
+                showNotification('Por favor, rellena todos los campos', 'error');
+                return;
             }
-        });
-    });
-
-    // Intersección observer para efectos de scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observar elementos que necesitan animación de entrada
-    const animatedElements = document.querySelectorAll('.project-card, .section-content, .contact-section');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease-out';
-        observer.observe(el);
-    });
-});
-
-// Detección de scroll para efectos adicionales
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(10, 10, 10, 0.95)';
-    } else {
-        header.style.background = 'rgba(10, 10, 10, 0.9)';
-    }
-});
-
-// Función para crear efectos de partículas (opcional)
-function createParticleEffect() {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.pointerEvents = 'none';
-    canvas.style.zIndex = '-1';
-    canvas.style.opacity = '0.3';
-    
-    document.body.appendChild(canvas);
-    
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    const particles = [];
-    const particleCount = 50;
-    
-    for (let i = 0; i < particleCount; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            radius: Math.random() * 2 + 1,
-            alpha: Math.random() * 0.5 + 0.2
+            
+            // Crear el contenido del email
+            const emailBody = `Nombre: ${name}%0D%0A` +
+                             `Email: ${email}%0D%0A` +
+                             `Asunto: ${subject}%0D%0A%0D%0A` +
+                             `Mensaje:%0D%0A${message}`;
+            
+            // Crear enlace mailto
+            const mailtoLink = `mailto:mfloresdelolmo@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+            
+            // Abrir cliente de email
+            window.location.href = mailtoLink;
+            
+            // Mostrar notificación
+            showNotification('¡Abriendo cliente de email!', 'success');
+            
+            // Opcional: limpiar formulario después de un delay
+            setTimeout(() => {
+                form.reset();
+            }, 2000);
         });
     }
-    
-    function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        particles.forEach(particle => {
-            particle.x += particle.vx;
-            particle.y += particle.vy;
-            
-            if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-            if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-            
-            ctx.beginPath();
-            ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 255, 255, ${particle.alpha})`;
-            ctx.fill();
-        });
-        
-        requestAnimationFrame(animateParticles);
-    }
-    
-    animateParticles();
-}
-
-// Efectos adicionales para mejorar la experiencia
-function addExtraEffects() {
-    // Efecto de hover mejorado para las 4 tarjetas de proyecto
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach((card, index) => {
-        // Animación de entrada escalonada
-        card.style.animationDelay = `${index * 0.15}s`;
-        
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-15px) scale(1.02)';
-            this.style.boxShadow = '0 25px 50px rgba(0, 255, 255, 0.2), 0 15px 30px rgba(0, 255, 136, 0.1)';
-            
-            // Efecto de brillo en las tech-items
-            const techItems = this.querySelectorAll('.tech-item');
-            techItems.forEach((item, i) => {
-                setTimeout(() => {
-                    item.style.transform = 'translateY(-2px) scale(1.05)';
-                }, i * 50);
-            });
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
-            
-            // Resetear tech-items
-            const techItems = this.querySelectorAll('.tech-item');
-            techItems.forEach(item => {
-                item.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    });
-    
-    // Efecto parallax mejorado
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const welcomeSection = document.querySelector('.welcome-section');
-        
-        if (welcomeSection) {
-            const speed = 0.3;
-            welcomeSection.style.transform = `translateY(${scrolled * speed}px)`;
-        }
-        
-        // Efecto de fade en proyectos al hacer scroll
-        const projectsSection = document.querySelector('.projects-section');
-        if (projectsSection) {
-            const rect = projectsSection.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-            
-            if (isVisible) {
-                const opacity = Math.max(0, Math.min(1, 1 - (Math.abs(rect.top) / window.innerHeight)));
-                projectsSection.style.opacity = opacity;
-            }
-        }
-    });
-}
-
-// Función para manejar el tema oscuro/claro (futura implementación)
-function toggleTheme() {
-    const body = document.body;
-    const currentTheme = body.getAttribute('data-theme');
-    
-    if (currentTheme === 'light') {
-        body.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        body.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-    }
-}
-
-// Cargar tema guardado
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.body.setAttribute('data-theme', savedTheme);
 }
 
 // Función para mostrar notificaciones personalizadas
@@ -360,7 +198,9 @@ function showNotification(message, type = 'info', duration = 3000) {
     setTimeout(() => {
         notification.style.transform = 'translateX(300px)';
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
         }, 300);
     }, duration);
 }
@@ -393,17 +233,121 @@ function copyEmailToClipboard() {
     }
 }
 
-// Event listeners adicionales
+// Efectos adicionales para mejorar la experiencia
+function addExtraEffects() {
+    // Efecto de hover mejorado para las 4 tarjetas de proyecto
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach((card, index) => {
+        // Animación de entrada escalonada
+        card.style.animationDelay = `${index * 0.15}s`;
+        
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+            this.style.boxShadow = '0 25px 50px rgba(0, 255, 255, 0.2), 0 15px 30px rgba(0, 255, 136, 0.1)';
+            
+            // Efecto de brillo en las tech-items
+            const techItems = this.querySelectorAll('.tech-item');
+            techItems.forEach((item, i) => {
+                setTimeout(() => {
+                    item.style.transform = 'translateY(-2px) scale(1.05)';
+                }, i * 50);
+            });
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+            
+            // Resetear tech-items
+            const techItems = this.querySelectorAll('.tech-item');
+            techItems.forEach(item => {
+                item.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    });
+}
+
+// Cerrar menú al hacer clic fuera
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('.nav');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (nav.classList.contains('active') && 
+        !nav.contains(event.target) && 
+        !hamburger.contains(event.target)) {
+        closeMenu();
+    }
+});
+
+// Cerrar menú al redimensionar ventana
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        closeMenu();
+    }
+});
+
+// Detección de scroll para efectos adicionales
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(10, 10, 10, 0.95)';
+    } else {
+        header.style.background = 'rgba(10, 10, 10, 0.9)';
+    }
+});
+
+// Inicialización
 document.addEventListener('DOMContentLoaded', function() {
-    // Cargar tema guardado
-    loadSavedTheme();
+    // Activar navegación de inicio
+    updateActiveNav('home');
+    
+    // Inicializar animaciones de bienvenida
+    setTimeout(initWelcomeAnimations, 500);
+    
+    // Inicializar formulario de contacto
+    handleFormSubmit();
     
     // Agregar efectos adicionales
     addExtraEffects();
     
-    // Crear efecto de partículas (opcional, comentado para mejor rendimiento)
-    // createParticleEffect();
-    
+    // Smooth scroll para todos los enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Intersección observer para efectos de scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos que necesitan animación de entrada
+    const animatedElements = document.querySelectorAll('.project-card, .section-content, .contact-section');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease-out';
+        observer.observe(el);
+    });
+
     // Agregar event listener para copiar email (solo en sección contacto)
     const emailElement = document.querySelector('#contacto .contact-info .email');
     if (emailElement) {
@@ -411,36 +355,4 @@ document.addEventListener('DOMContentLoaded', function() {
         emailElement.title = 'Clic para copiar';
         emailElement.addEventListener('click', copyEmailToClipboard);
     }
-    
-    // Precargar imágenes y recursos
-    const preloadImages = [
-        // Agregar aquí las rutas de las imágenes que quieras precargar
-    ];
-    
-    preloadImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-    
-    // Configurar Service Worker para cache (si está disponible)
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('SW registered: ', registration);
-                })
-                .catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-        });
-    }
 });
-
-// Función de utilidad para debug (solo en desarrollo)
-function debugInfo() {
-    console.log('🎯 Yatawek Portfolio Debug Info');
-    console.log('Current Section:', currentSection);
-    console.log('Screen Size:', window.innerWidth + 'x' + window.innerHeight);
-    console.log('User Agent:', navigator.userAgent);
-    console.log('Theme:', document.body.getAttribute('data-theme'));
-}
