@@ -30,9 +30,8 @@
             <div class="nav-container">
                 <nav>
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" onclick="showSection('noticias')">Noticias</a></li>
-                        <li class="nav-item"><a class="nav-link" onclick="showSection('articulos')">Artículos</a></li>
-                        <li class="nav-item"><a class="nav-link" onclick="showSection('whoami')">Whoami</a></li>
+                        <li class="nav-item"><a class="nav-link" onclick="showHome()">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" onclick="showSection('whoami')">Sobre mí</a></li>
                         <li class="nav-item"><a class="nav-link" onclick="scrollToContact()">Contacto</a></li>
                     </ul>
                 </nav>
@@ -50,97 +49,64 @@
         <!-- Página de inicio -->
         <div id="home" class="section active">
             <div class="welcome-section">
-                <div class="container">
-                    <h1 class="welcome-title">
-                        <span class="letter" data-delay="0">B</span>
-                        <span class="letter" data-delay="100">i</span>
-                        <span class="letter" data-delay="200">e</span>
-                        <span class="letter" data-delay="300">n</span>
-                        <span class="letter" data-delay="400">v</span>
-                        <span class="letter" data-delay="500">e</span>
-                        <span class="letter" data-delay="600">n</span>
-                        <span class="letter" data-delay="700">i</span>
-                        <span class="letter" data-delay="800">d</span>
-                        <span class="letter" data-delay="900">@</span>
-                    </h1>
-                    <p class="welcome-subtitle">
-                        <span class="subtitle-text">Me llamo José Manuel Flores, apasionado por la tecnología, la programación y los datos.</span>
-                    </p>
-                </div>
-            </div>
+    <div class="container">
+        <h1 class="welcome-title">
+            <span class="letter" data-delay="0">H</span>
+            <span class="letter" data-delay="100">o</span>
+            <span class="letter" data-delay="200">l</span>
+            <span class="letter" data-delay="300">a</span>
+            <span class="letter" data-delay="400">,</span>
+            <span class="letter" data-delay="500"> </span>
+            <span class="letter" data-delay="600">s</span>
+            <span class="letter" data-delay="700">o</span>
+            <span class="letter" data-delay="800">y</span>
+            <span class="letter" data-delay="900"> </span>
+            <span class="letter" data-delay="1000">J</span>
+            <span class="letter" data-delay="1100">o</span>
+            <span class="letter" data-delay="1200">s</span>
+            <span class="letter" data-delay="1300">é</span>
+        </h1>
+        <p class="welcome-subtitle">
+            <span class="subtitle-text" style="font-size: 1.5rem; display: block; margin-bottom: 15px;">
+                Power BI Developer | Aprendiendo Microsoft Fabric 🚀
+            </span>
+            <span style="color: #ccc; font-size: 1.1rem; max-width: 700px; display: inline-block;">
+                Apasionado de los datos y la tecnología. Aquí documento mi camino de aprendizaje construyendo proyectos reales. Curioso por naturaleza y con muchas ganas de crecer en el mundo del Data Engineering.
+            </span>
+        </p>
+    </div>
+</div>
 
             <!-- Proyectos -->
-            <section class="projects-section" id="proyectos-section">
-                <div class="container">
-                    <div class="projects-grid">
-                        <div class="project-card" onclick="openProject('https://app.powerbi.com/view?r=eyJrIjoiMU9FRTM5NzQtREZCRS00RjhDLTkzRjUtNDEzNjRCNzE1NzJFIiwidCI6IjYyMjNhZGE2LWY1NzEtNGI1Yy04OTYwLWUyOWZlZTJiNGY1MSJ9')">
-                            <div class="project-icon">💼</div>
-                            <h3 class="project-title">Dashboard Financiero</h3>
-                            <p class="project-description">
-                                Sistema completo de seguimiento financiero con KPIs automáticos y alertas en tiempo real. Plataforma que integra múltiples fuentes de datos para ofrecer una visión 360° de la salud financiera organizacional.
-                            </p>
-                            <a href="#" class="project-link" onclick="event.stopPropagation(); openProject('https://app.powerbi.com/view?r=eyJrIjoiMU9FRTM5NzQtREZCRS00RjhDLTkzRjUtNDEzNjRCNzE1NzJFIiwidCI6IjYyMjNhZGE2LWY1NzEtNGI1Yy04OTYwLWUyOWZlZTJiNGY1MSJ9')">
-                                Ver Dashboard →
-                            </a>
-                            <div class="tech-stack">
-                                <div class="tech-item powerbi">POWER BI</div>
-                                <div class="tech-item dax">DAX</div>
-                                <div class="tech-item sql">SQL</div>
-                                <div class="tech-item excel">EXCEL</div>
-                            </div>
-                        </div>
-                        <div class="project-card" onclick="openProject('https://app.powerbi.com/view?r=eyJrIjoiZjQ0YzQ4OWQtMGUyMC00MWNjLTlhYTAtMzJkNzVlYjE2MmY4IiwidCI6IjYyMjNhZGE2LWY1NzEtNGI1Yy04OTYwLWUyOWZlZTJiNGY1MSJ9')">
-                            <div class="project-icon">🚴</div>
-                            <h3 class="project-title">Dashboard Tour de Francia</h3>
-                            <p class="project-description">
-                                Análisis completo del Tour de Francia con métricas de rendimiento, clasificaciones en tiempo real y estadísticas históricas. Dashboard interactivo con visualizaciones de etapas, perfiles de altitud y análisis comparativo de ciclistas.
-                            </p>
-                            <a href="#" class="project-link" onclick="event.stopPropagation(); openProject('https://app.powerbi.com/view?r=eyJrIjoiZjQ0YzQ4OWQtMGUyMC00MWNjLTlhYTAtMzJkNzVlYjE2MmY4IiwidCI6IjYyMjNhZGE2LWY1NzEtNGI1Yy04OTYwLWUyOWZlZTJiNGY1MSJ9')">
-                                Ver Dashboard →
-                            </a>
-                            <div class="tech-stack">
-                                <div class="tech-item powerbi">POWER BI</div>
-                                <div class="tech-item python">PYTHON</div>
-                                <div class="tech-item sql">SQL</div>
-                                <div class="tech-item dax">DAX</div>
-                            </div>
-                        </div>
-                        <div class="project-card" onclick="openProject('#')">
-                            <div class="project-icon">🍽️</div>
-                            <h3 class="project-title">Aplicación Web Catering</h3>
-                            <p class="project-description">
-                                Plataforma web completa para gestión de pedidos de catering. Sistema integral que incluye catálogo de menús, calculadora de precios, gestión de eventos y panel administrativo para seguimiento de pedidos en tiempo real.
-                            </p>
-                            <a href="#" class="project-link" onclick="event.stopPropagation(); openProject('#')">
-                                Ver Aplicación →
-                            </a>
-                            <div class="tech-stack">
-                                <div class="tech-item react">REACT</div>
-                                <div class="tech-item nodejs">NODE.JS</div>
-                                <div class="tech-item mongodb">MONGODB</div>
-                                <div class="tech-item css">CSS</div>
-                            </div>
-                        </div>
-                        <div class="project-card" onclick="openProject('#')">
-                            <div class="project-icon">🎵</div>
-                            <h3 class="project-title">App Móvil Banda Musical</h3>
-                            <p class="project-description">
-                                Aplicación móvil para gestión integral de bandas de música. Incluye calendario de ensayos, repertorio digital, gestión de miembros, seguimiento de actuaciones y sistema de comunicación interna para una coordinación eficiente.
-                            </p>
-                            <a href="#" class="project-link" onclick="event.stopPropagation(); openProject('#')">
-                                Ver Aplicación →
-                            </a>
-                            <div class="tech-stack">
-                                <div class="tech-item flutter">FLUTTER</div>
-                                <div class="tech-item firebase">FIREBASE</div>
-                                <div class="tech-item dart">DART</div>
-                                <div class="tech-item api">API REST</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <div class="projects-grid" style="justify-content: center;">
+    <div class="project-card project-card-featured" style="max-width: 600px; margin: 0 auto;">
+        <div class="project-icon">☁️</div>
+        <h3 class="project-title">Pipeline End-to-End con Fabric</h3>
+        
+        <p class="project-description">
+            Quería entender cómo funciona la ingeniería de datos moderna, así que construí este proyecto desde cero usando datos reales del INE sobre Renta.
+            <br><br>
+            🎯 <strong>El Objetivo:</strong> Aprender a ingestar datos "sucios", limpiarlos con código y visualizarlos.
+            <br>
+            🛠️ <strong>Lo que aprendí:</strong> A usar el <strong>Lakehouse</strong>, escribir mis primeros scripts en <strong>PySpark</strong> para limpiar datos y conectarlo todo a <strong>Power BI</strong>.
+        </p>
+        
+        <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 25px;">
+            <a href="https://github.com/floresdelolmo-ai/End-to-End-Fabric-Renta" target="_blank" class="project-link" style="margin:0;">
+                📂 Ver mi Código
+            </a>
+            <a href="#" class="project-link" style="margin:0; border-color: #E25A1C; color: #E25A1C;">
+                📊 Ver el Resultado
+            </a>
         </div>
+
+        <div class="tech-stack">
+            <div class="tech-item fabric">FABRIC</div>
+            <div class="tech-item python">PYSPARK</div>
+            <div class="tech-item powerbi">POWER BI</div>
+        </div>
+    </div>
+</div>
 
         <!-- Sección de Noticias -->
         <div id="noticias" class="section">
@@ -180,17 +146,20 @@
                 
                 <!-- Información personal -->
                 <div class="section-content">
-                    <h2>Whoami</h2>
-                    <p>
-                        Analista de datos especializado en Power BI y visualización de información. Apasionado por 
-                        transformar datos complejos en insights accionables que impulsen la toma de decisiones estratégicas. 
-                        Con experiencia en DAX, SQL, Python y diseño de dashboards interactivos.
-                    </p>
-                    <p>
-                        Mi misión es democratizar el acceso a los datos y ayudar a las organizaciones a descubrir 
-                        el valor oculto en su información.
-                    </p>
-                </div>
+    <h2>Sobre mí</h2>
+    <p class="lead" style="font-size: 1.3rem; color: #00ffff; margin-bottom: 20px;">
+        <strong>Construyendo mi camino en el mundo de los datos.</strong>
+    </p>
+    <p>
+        Soy José Manuel Flores, un desarrollador apasionado por entender el "por qué" detrás de los datos. Aunque mi base fuerte es <strong>Power BI</strong>, soy inquieto y ahora estoy sumergiéndome de lleno en la Ingeniería de Datos con <strong>Microsoft Fabric</strong> y <strong>Python</strong>.
+    </p>
+    <p>
+        No lo sé todo (todavía), pero me encanta enfrentarme a problemas nuevos, buscar la solución y aprender en el proceso. Este portafolio es mi laboratorio: aquí subo lo que aprendo, lo que rompo y lo que arreglo.
+    </p>
+    <p>
+        Busco una oportunidad para aportar mis ganas, mi capacidad de aprendizaje y crecer junto a un equipo técnico.
+    </p>
+</div>
 
                 <!-- Explicación de Yatawek -->
                 <div class="yatawek-explanation">
@@ -201,7 +170,7 @@
                         (<span class="highlight">Yatawek'al</span>: <span class="highlight">él/ella sabe</span>).
                     </p>
                     <p>
-                        Creemos que los datos deben tener propósito: contar historias, conectar realidades y generar impacto positivo.
+                        Creo que los datos deben tener propósito: contar historias, conectar realidades y generar impacto positivo.
                     </p>
                     <p>
                         El conocimiento compartido transforma la realidad y construye un futuro mejor.

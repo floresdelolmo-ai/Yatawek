@@ -1267,3 +1267,87 @@ body {
         max-width: 100%;
     }
 }
+
+/* --- AÑADIR AL FINAL DE TU styles.css --- */
+
+/* 1. Colores para las nuevas tecnologías */
+.tech-item.fabric {
+    background: rgba(0, 164, 239, 0.1); /* Azul Fabric */
+    border-color: rgba(0, 164, 239, 0.4);
+    color: #00A4EF;
+    box-shadow: 0 0 10px rgba(0, 164, 239, 0.1);
+}
+
+.tech-item.fabric:hover {
+    background: rgba(0, 164, 239, 0.2);
+    box-shadow: 0 0 20px rgba(0, 164, 239, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Actualizamos Python para que parezca más "PySpark" (Naranja/Rojizo) */
+.tech-item.python {
+    background: rgba(226, 90, 28, 0.1) !important;
+    border-color: rgba(226, 90, 28, 0.4) !important;
+    color: #E25A1C !important;
+}
+
+.tech-item.python:hover {
+    box-shadow: 0 0 20px rgba(226, 90, 28, 0.4) !important;
+}
+
+/* 2. Estilo especial para tu Proyecto Estrella (El de Fabric) */
+/* Esto sustituye al style="border-top..." que pusimos en el HTML */
+.project-card-featured {
+    border-top: 4px solid #00A4EF !important;
+    background: linear-gradient(145deg, rgba(0, 164, 239, 0.05), rgba(0, 0, 0, 0.6)) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.project-card-featured:hover {
+    border-color: #00A4EF !important;
+    box-shadow: 0 20px 50px rgba(0, 164, 239, 0.15) !important;
+}
+
+/* 3. Ajuste para los botones del proyecto (GitHub y Demo) */
+.project-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.btn-repo, .btn-demo {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-repo {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.btn-repo:hover {
+    background: white;
+    color: black;
+}
+
+.btn-demo {
+    background: rgba(0, 164, 239, 0.1);
+    border: 1px solid #00A4EF;
+    color: #00A4EF;
+}
+
+.btn-demo:hover {
+    background: #00A4EF;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 164, 239, 0.6);
+}
