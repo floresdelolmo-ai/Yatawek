@@ -41,7 +41,6 @@ body {
 .dot-header:nth-child(odd) { background: #0891b2; }
 .dot-header:nth-child(1) { animation-delay: 0s; }
 .dot-header:nth-child(2) { animation-delay: 0.3s; }
-/* ... resto de dots ... */
 .dot-header:nth-child(3) { animation-delay: 0.6s; }
 .dot-header:nth-child(4) { animation-delay: 0.9s; }
 .dot-header:nth-child(5) { animation-delay: 1.2s; }
@@ -61,15 +60,16 @@ body {
     100% { text-shadow: 0 0 20px rgba(0, 255, 136, 1), 0 0 30px rgba(0, 255, 136, 0.5); }
 }
 
-/* --- MENÚ HORIZONTAL ARREGLADO --- */
+/* --- MENÚ HORIZONTAL CORREGIDO --- */
 .nav-container {
     display: flex;
     align-items: center;
 }
 
-.nav ul { 
-    display: flex;             /* ¡ESTO FALTABA! Hace que se pongan en fila */
-    flex-direction: row;       /* Dirección horizontal */
+/* CORRECCIÓN: Usamos .nav directamente porque la clase está en el UL */
+.nav { 
+    display: flex;             
+    flex-direction: row;       /* FORZAMOS FILA HORIZONTAL */
     list-style: none; 
     gap: 30px; 
     align-items: center; 
@@ -90,7 +90,7 @@ body {
 
 .nav-link:hover { color: #00ffff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
 
-/* Línea animada debajo del menú */
+/* Línea animada */
 .nav-link::after {
     content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px;
     background: linear-gradient(90deg, #00ff88, #00ffff);
@@ -102,7 +102,7 @@ body {
 .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
 .hamburger span { width: 25px; height: 3px; background: #00ffff; }
 
-/* --- RESTO DE ESTILOS --- */
+/* --- RESTO --- */
 .main-content { margin-top: 100px; padding-bottom: 50px; }
 .section { display: none; animation: fadeIn 0.5s ease; }
 .section.active { display: block; }
@@ -140,6 +140,7 @@ body {
 .btn-repo:hover { background: white; color: black; }
 .btn-demo { background: rgba(0, 164, 239, 0.1); color: #00A4EF; border: 1px solid #00A4EF; }
 .btn-demo:hover { background: #00A4EF; color: white; }
+
 .tech-tooltip { transition: transform 0.2s; cursor: help; }
 .tech-tooltip:hover { transform: scale(1.2); }
 
