@@ -24,11 +24,15 @@ body {
     display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
 }
 
-/* Animación del Logo (Puntitos) */
+/* Logo "Gamer" con puntitos parpadeantes */
 .logo-header {
     display: flex; align-items: center; gap: 15px; cursor: pointer; transition: all 0.3s ease;
 }
 .logo-header:hover { transform: scale(1.02); }
+
+.logo-header:hover .logo-text {
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.9), 0 0 25px rgba(0, 255, 136, 0.6);
+}
 
 .data-dots-header {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 8px;
@@ -67,7 +71,7 @@ body {
     100% { text-shadow: 0 0 20px rgba(0, 255, 136, 1), 0 0 30px rgba(0, 255, 136, 0.5); }
 }
 
-/* --- MENÚ ANIMADO RESTAURADO --- */
+/* --- MENÚ --- */
 .nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
 
 .nav-link {
@@ -76,7 +80,6 @@ body {
 }
 .nav-link:hover { color: #00ffff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
 
-/* La línea mágica debajo del menú */
 .nav-link::after {
     content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px;
     background: linear-gradient(90deg, #00ff88, #00ffff);
@@ -84,17 +87,6 @@ body {
     transform: translateX(-50%);
 }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-
-/* Botón CV Especial */
-.cv-btn-style {
-    border: 1px solid #00ff88; border-radius: 4px; padding: 5px 15px !important;
-    color: #00ff88 !important; font-weight: bold;
-}
-.cv-btn-style:hover {
-    background: #00ff88; color: #000 !important;
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
-}
-.cv-btn-style::after { display: none; } /* Quitamos subrayado al botón */
 
 .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
 .hamburger span { width: 25px; height: 3px; background: #00ffff; }
@@ -107,38 +99,45 @@ body {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* --- HERO --- */
-.welcome-section { text-align: center; padding: 60px 0; }
+.welcome-section { text-align: center; padding: 40px 0; }
 .welcome-title { font-size: 3.5rem; margin-bottom: 20px; color: #00ffff; font-weight: 900; }
 .welcome-title .letter { display: inline-block; opacity: 0; animation: letterAppear 0.5s forwards; }
 @keyframes letterAppear { to { opacity: 1; transform: translateY(0); } }
 
-/* --- TARJETAS --- */
+/* --- TARJETA COMPACTA --- */
 .project-card {
     background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 40px; text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease;
 }
-.project-card-featured {
+
+/* Clase especial para hacerla más pequeña */
+.compact-card {
+    padding: 25px !important; /* Menos relleno interno */
+    border-top: 4px solid #00A4EF;
     background: linear-gradient(145deg, rgba(0, 164, 239, 0.08), rgba(0, 0, 0, 0.4));
-    border-top: 4px solid #00A4EF; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
-.project-card-featured:hover {
+
+.compact-card:hover {
     transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 164, 239, 0.15);
 }
+
 .project-title { color: #00ffff; font-weight: 700; }
 .project-description { color: #bbb; line-height: 1.6; }
-.project-actions { display: flex; gap: 15px; justify-content: center; margin-top: 25px; }
+.project-actions { display: flex; gap: 15px; justify-content: center; }
 
 .btn-repo, .btn-demo {
-    padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: all 0.3s;
+    border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;
 }
 .btn-repo { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
 .btn-repo:hover { background: white; color: black; }
 .btn-demo { background: rgba(0, 164, 239, 0.1); color: #00A4EF; border: 1px solid #00A4EF; }
 .btn-demo:hover { background: #00A4EF; color: white; }
+
 .tech-tooltip { transition: transform 0.2s; cursor: help; }
 .tech-tooltip:hover { transform: scale(1.2); }
 
-/* --- SECCIONES EXTRA --- */
+/* --- WHOAMI & YATAWEK --- */
 .profile-photo {
     width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 30px;
     background: rgba(0,255,255,0.1); display: flex; align-items: center; justify-content: center;
@@ -149,6 +148,28 @@ body {
     background: rgba(255,255,255,0.02); padding: 40px; border-radius: 15px;
 }
 .section-content p { margin-bottom: 15px; line-height: 1.8; color: #ccc; }
+
+/* Nuevo Botón CV en Whoami */
+.cv-download-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgba(0, 255, 136, 0.1);
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.cv-download-btn:hover {
+    background: #00ff88;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+    transform: translateY(-3px);
+}
+
 .yatawek-explanation {
     max-width: 800px; margin: 40px auto 0; padding: 30px;
     background: rgba(0, 255, 136, 0.05); border-left: 4px solid #00ff88; border-radius: 8px;
@@ -157,22 +178,4 @@ body {
 
 /* --- CONTACTO & FOOTER --- */
 .contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
-.contact-form input, .contact-form textarea {
-    width: 100%; padding: 15px; margin-bottom: 15px;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px; color: white;
-}
-.submit-btn {
-    width: 100%; padding: 15px; background: #00A4EF; color: white;
-    border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
-    font-size: 1rem; transition: background 0.3s;
-}
-.submit-btn:hover { background: #008ecf; }
-.footer {
-    text-align: center; padding: 30px; font-size: 0.9rem; color: #666;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-@media (max-width: 768px) {
-    .nav { display: none; } .hamburger { display: flex; }
-    .welcome-title { font-size: 2.5rem; } .project-card { margin: 0 20px; }
-}
+.contact-form input, .contact-form textarea

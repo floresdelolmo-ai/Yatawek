@@ -34,11 +34,6 @@
                         <li class="nav-item">
                             <a class="nav-link" onclick="scrollToContact()">Contacto</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="assets/CV_Jose_Manuel_Flores_Data_Engineer.pdf" target="_blank" class="nav-link cv-btn-style">
-                                📄 CV
-                            </a>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -52,6 +47,7 @@
     <main class="main-content">
         
         <div id="home" class="section active">
+            
             <div class="welcome-section">
                 <div class="container">
                     <h1 class="welcome-title">
@@ -61,8 +57,8 @@
                         <span class="subtitle-text" style="font-size: 1.5rem; display: block; margin-bottom: 15px;">
                             Power BI Developer | Aprendiendo Microsoft Fabric 🚀
                         </span>
-                        <span style="color: #ccc; font-size: 1.1rem; max-width: 700px; display: inline-block;">
-                            Apasionado de los datos y la tecnología. Documentando mi camino de aprendizaje construyendo proyectos reales.
+                        <span style="color: #ccc; font-size: 1rem; max-width: 700px; display: inline-block;">
+                            Apasionado de los datos y la tecnología. Construyendo proyectos reales.
                         </span>
                     </p>
                 </div>
@@ -72,48 +68,49 @@
                 <div class="container">
                     <div class="projects-grid" style="justify-content: center;">
                         
-                        <div class="project-card project-card-featured" style="max-width: 420px; margin: 0 auto; cursor: default;">
+                        <div class="project-card project-card-featured compact-card" style="max-width: 380px; margin: 0 auto; cursor: default;">
                             
-                            <div class="project-icon" style="font-size: 3.5rem; margin-bottom: 15px;">☁️</div>
+                            <div class="project-icon" style="font-size: 2.5rem; margin-bottom: 10px;">☁️</div>
                             
-                            <h3 class="project-title" style="font-size: 1.4rem; margin-bottom: 15px;">
+                            <h3 class="project-title" style="font-size: 1.2rem; margin-bottom: 10px;">
                                 Pipeline End-to-End con Fabric
                             </h3>
                             
-                            <p class="project-description" style="font-size: 0.95rem; margin-bottom: 25px;">
-                                Quería entender la ingeniería de datos moderna, así que construí este pipeline desde cero con datos públicos del INE.
+                            <p class="project-description" style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">
+                                Ingeniería de datos moderna con datos públicos del INE.
                                 <br><br>
-                                🎯 <strong>Objetivo:</strong> Ingesta, limpieza con <strong>PySpark</strong> y visualización final.
+                                🎯 <strong>Objetivo:</strong> Ingesta, limpieza (PySpark) y visualización.
                             </p>
                             
-                            <div class="project-actions">
-                                <a href="https://github.com/floresdelolmo-ai/End-to-End-Fabric-Renta" target="_blank" class="btn-repo">
-                                    📂 Ver Código
+                            <div class="project-actions" style="margin-top: 15px; margin-bottom: 15px;">
+                                <a href="https://github.com/floresdelolmo-ai/End-to-End-Fabric-Renta" target="_blank" class="btn-repo" style="padding: 8px 15px; font-size: 0.8rem;">
+                                    📂 Código
                                 </a>
-                                <a href="#" class="btn-demo" onclick="alert('¡Dashboard en proceso de publicación!'); return false;">
-                                    📊 Ver Dashboard
+                                <a href="#" class="btn-demo" onclick="alert('¡Dashboard en proceso de publicación!'); return false;" style="padding: 8px 15px; font-size: 0.8rem;">
+                                    📊 Dashboard
                                 </a>
                             </div>
 
-                            <div class="tech-stack-icons" style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                            <div class="tech-stack-icons" style="display: flex; gap: 15px; justify-content: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
                                 
                                 <div class="tech-tooltip" title="Microsoft Fabric">
-                                    <img src="https://img.icons8.com/color/48/microsoft-fabric.png" alt="Fabric" style="width: 32px; height: 32px;">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Microsoft_Fabric_Icon.png" alt="Fabric" style="width: 28px; height: 28px;">
                                 </div>
 
                                 <div class="tech-tooltip" title="Python / PySpark">
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" style="width: 32px; height: 32px;">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" style="width: 28px; height: 28px;">
                                 </div>
 
                                 <div class="tech-tooltip" title="Power BI">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" style="width: 32px; height: 32px;">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" style="width: 28px; height: 28px;">
                                 </div>
                                 
                                 <div class="tech-tooltip" title="GitHub">
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" style="filter: invert(1); width: 32px; height: 32px;">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" style="filter: invert(1); width: 28px; height: 28px;">
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -133,6 +130,13 @@
                     <p>
                         Soy José Manuel, un desarrollador apasionado por entender el "por qué" detrás de los datos.
                     </p>
+                    
+                    <div style="margin: 30px 0;">
+                        <a href="assets/CV_Jose_Manuel_Flores_Data_Engineer.pdf" target="_blank" class="cv-download-btn">
+                            📄 Descargar mi CV
+                        </a>
+                    </div>
+
                     <p>
                         No lo sé todo (todavía), pero me encanta enfrentarme a problemas nuevos, buscar la solución y aprender en el proceso.
                     </p>
@@ -152,15 +156,10 @@
                 <div class="contact-section">
                     <h2>Contacto</h2>
                     <div class="contact-info">
-                        <p class="email" style="color: #00ff88; font-size: 1.4rem; font-weight: bold; margin-bottom: 10px;">
+                        <p class="email" style="color: #00ff88; font-size: 1.4rem; font-weight: bold;">
                             mfloresdelolmo@gmail.com
                         </p>
-                        <div style="margin: 25px 0;">
-                            <a href="assets/CV_Jose_Manuel_Flores_Data_Engineer.pdf" target="_blank" class="submit-btn" style="display: inline-block; width: auto; text-decoration: none; background: rgba(255,255,255,0.1); border: 1px solid white;">
-                                📥 Descargar mi CV
-                            </a>
-                        </div>
-                        <p class="location" style="color: #00ffff;">📍 Granada, España</p>
+                        <p class="location" style="color: #00ffff; margin-top: 10px;">📍 Granada, España</p>
                     </div>
                     
                     <div class="contact-form">
