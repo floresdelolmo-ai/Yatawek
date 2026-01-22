@@ -13,6 +13,14 @@ function showSection(sectionId) {
 
     updateNavHighlight(sectionId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // IMPORTANTE: Cerrar menú móvil al hacer clic
+    const nav = document.querySelector('.nav');
+    const hamburger = document.querySelector('.hamburger');
+    if (nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
 }
 
 // Atajo para ir al Home
@@ -31,7 +39,6 @@ function updateNavHighlight(activeId) {
     const links = document.querySelectorAll('.nav-link');
     links.forEach(link => link.classList.remove('active'));
 
-    // NOTA: El último link es el CV, así que no lo incluimos en el array de navegación interna
     if (activeId === 'home') links[0].classList.add('active');
     if (activeId === 'whoami') links[1].classList.add('active');
     if (activeId === 'contacto') links[2].classList.add('active');
@@ -47,27 +54,19 @@ function initWelcomeAnimations() {
     });
 }
 
-// Menú Móvil (Toggle)
+// MENÚ MÓVIL (TOGGLE)
 function toggleMenu() {
-    const nav = document.querySelector('nav');
-    if (nav.style.display === 'block') {
-        nav.style.display = 'none';
-    } else {
-        nav.style.display = 'block';
-        nav.style.position = 'absolute';
-        nav.style.top = '70px';
-        nav.style.left = '0';
-        nav.style.width = '100%';
-        nav.style.background = '#0a0a0a';
-        nav.style.padding = '20px';
-    }
+    const nav = document.querySelector('.nav');
+    const hamburger = document.querySelector('.hamburger');
+    
+    // Alternar clases 'active'
+    nav.classList.toggle('active');
+    hamburger.classList.toggle('active');
 }
 
-// Al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     initWelcomeAnimations();
     
-    // Formulario de contacto
     const form = document.getElementById('contactForm');
     if(form) {
         form.addEventListener('submit', (e) => {
