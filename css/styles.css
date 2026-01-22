@@ -24,7 +24,7 @@ body {
     display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
 }
 
-/* --- LOGO YATAWEK (Ajustado: Más fino y estilizado) --- */
+/* LOGO: Aplicando 'Nunito' para el redondeo suave */
 .logo-header {
     display: flex; align-items: center; gap: 15px; cursor: pointer; transition: all 0.3s ease;
 }
@@ -32,7 +32,7 @@ body {
 
 .data-dots-header {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 8px;
-    background: rgba(0, 255, 255, 0.1); border-radius: 12px; /* Más redondeado */
+    background: rgba(0, 255, 255, 0.1); border-radius: 12px; /* Ligeramente más redondeado */
     border: 1px solid rgba(0, 255, 255, 0.3);
 }
 .dot-header {
@@ -41,17 +41,17 @@ body {
     animation: blink 1.5s infinite;
 }
 .dot-header:nth-child(odd) { background: #0891b2; }
-/* ... delays de los dots ... */
 .dot-header:nth-child(1) { animation-delay: 0s; } .dot-header:nth-child(2) { animation-delay: 0.3s; }
 .dot-header:nth-child(3) { animation-delay: 0.6s; } .dot-header:nth-child(4) { animation-delay: 0.9s; }
 .dot-header:nth-child(5) { animation-delay: 1.2s; } .dot-header:nth-child(6) { animation-delay: 0.15s; }
 .dot-header:nth-child(7) { animation-delay: 0.45s; } .dot-header:nth-child(8) { animation-delay: 0.75s; }
 @keyframes blink { 0%, 50% { opacity: 1; transform: scale(1); } 25% { opacity: 0.4; transform: scale(1.2); } }
 
-/* TEXTO DEL LOGO (Más fino) */
+/* AQUI ESTÁ EL CAMBIO DE FUENTE */
 .logo-text { 
+    font-family: 'Nunito', sans-serif; /* Fuente redondeada */
     font-size: 1.8rem; 
-    font-weight: 600; /* Antes era 900 (muy gordo), ahora 600 (SemiBold) */
+    font-weight: 700; /* Peso Bold (pero no extra black 900) */
     letter-spacing: 0.05em; 
 }
 .logo-text .y-letter { 
@@ -69,7 +69,7 @@ body {
 
 .nav { 
     display: flex;             
-    flex-direction: row;       /* Fila en escritorio */
+    flex-direction: row;
     list-style: none; 
     gap: 30px; 
     align-items: center; 
@@ -89,15 +89,22 @@ body {
 }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2000; }
+/* HAMBURGUESA: Z-Index muy alto para que se vea sobre el menú */
+.hamburger { 
+    display: none; 
+    flex-direction: column; 
+    gap: 5px; 
+    cursor: pointer; 
+    z-index: 2001; /* POR ENCIMA DEL MENÚ MÓVIL */
+    position: relative;
+}
 .hamburger span { width: 25px; height: 3px; background: #00ffff; transition: 0.3s; }
 
-/* Animación Hamburguesa */
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-/* --- RESTO DE ESTILOS --- */
+/* --- RESTO --- */
 .main-content { margin-top: 100px; padding-bottom: 50px; }
 .section { display: none; animation: fadeIn 0.5s ease; }
 .section.active { display: block; }
@@ -110,7 +117,7 @@ body {
 .welcome-title .letter { display: inline-block; opacity: 0; animation: letterAppear 0.5s forwards; }
 @keyframes letterAppear { to { opacity: 1; transform: translateY(0); } }
 
-/* Tarjeta Compacta */
+/* Tarjeta */
 .project-card {
     background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 40px; text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.3s ease;
@@ -136,7 +143,7 @@ body {
 .tech-tooltip { transition: transform 0.2s; cursor: help; }
 .tech-tooltip:hover { transform: scale(1.2); }
 
-/* Whoami & Contacto */
+/* Whoami */
 .profile-photo {
     width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 30px;
     background: rgba(0,255,255,0.1); display: flex; align-items: center; justify-content: center;
@@ -180,41 +187,40 @@ body {
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-/* --- MÓVIL RESPONSIVE (AQUÍ ESTÁ LA SOLUCIÓN) --- */
+/* --- MENÚ MÓVIL BLINDADO --- */
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     
     .nav { 
-        position: fixed;
-        top: 70px; /* Ajuste altura header */
+        position: fixed; /* FIJO A LA PANTALLA */
+        top: 0; 
         left: 0;
-        right: 0;
+        width: 100%;
+        height: 100vh; /* OCUPA TODA LA ALTURA */
+        
         background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(15px);
         
-        /* AQUÍ ESTÁ EL TRUCO: Volvemos a columna en móvil */
-        flex-direction: column !important; 
+        flex-direction: column !important; /* COLUMNA OBLIGATORIA */
+        justify-content: center; /* CENTRADO VERTICAL */
         
-        gap: 0;
+        gap: 30px;
         padding: 20px;
-        border-top: 1px solid rgba(0, 255, 255, 0.2);
         
-        /* Oculto por defecto */
         transform: translateX(100%);
         transition: transform 0.3s ease;
-        z-index: 999;
-        height: 100vh; /* Ocupa toda la pantalla */
+        z-index: 2000; /* POR ENCIMA DE TODO (Menos de la hamburguesa) */
     }
 
     .nav.active {
-        transform: translateX(0); /* Se muestra al activar */
+        transform: translateX(0);
     }
 
     .nav-item { margin: 15px 0; width: 100%; text-align: center; }
     
     .nav-link { 
         display: block; 
-        font-size: 1.2rem; 
+        font-size: 1.5rem; /* LETRA MÁS GRANDE EN MÓVIL */
         padding: 10px;
     }
 
