@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yatawek - José Manuel Flores</title>
-    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzBhMGEwYSIvPgo8ZyBvcGFjaXR5PSIwLjkiPgo8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzAwZmZmZiIvPgo8cmVjdCB4PSIxMiIgeT0iNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwODkxYjIiLz4KPHJlY3QgeD0iMTgiIHk9IjYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjMDBmZmZmIi8+CjxyZWN0IHg9IjI0IiB5PSI2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzA4OTFiMiIvPgo8cmVjdCB4PSI2IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwODkxYjIiLz4KPHJlY3QgeD0iMTIiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzAwZmZmZiIvPgo8cmVjdCB4PSIxOCIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjMDg5MWIyIi8+CjxyZWN0IHg9IjI0IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwMGZmZmYiLz4KPC9nPgo8dGV4dCB4PSIxNiIgeT0iMjYiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjg4Ij5ZPC90ZXh0Pgo8L3N2Zz4K">
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -21,96 +19,51 @@
                     <div class="dot-header"></div><div class="dot-header"></div>
                     <div class="dot-header"></div><div class="dot-header"></div>
                 </div>
-                <div class="logo-text">
-                    <span class="y-letter">Y</span><span class="rest-letters">atawek</span>
-                </div>
+                <div class="logo-text"><span class="y-letter">Y</span><span class="rest-letters">atawek</span></div>
             </div>
             
             <div class="nav-container">
                 <nav>
                     <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" onclick="showHome()">Proyectos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" onclick="showSection('whoami')">Sobre mí</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" onclick="scrollToContact()">Contacto</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link active" onclick="showHome()">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" onclick="showSection('whoami')">Sobre mí</a></li>
+                        <li class="nav-item"><a class="nav-link" onclick="scrollToContact()">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
-            
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span><span></span><span></span>
-            </div>
+            <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
     </header>
 
     <main class="main-content">
-        
         <div id="home" class="section active">
-            
             <div class="welcome-section">
                 <div class="container">
                     <h1 class="welcome-title">
                         <span class="letter" data-delay="0">B</span><span class="letter" data-delay="100">i</span><span class="letter" data-delay="200">e</span><span class="letter" data-delay="300">n</span><span class="letter" data-delay="400">v</span><span class="letter" data-delay="500">e</span><span class="letter" data-delay="600">n</span><span class="letter" data-delay="700">i</span><span class="letter" data-delay="800">d</span><span class="letter" data-delay="900">@</span>
                     </h1>
-                    <p class="welcome-subtitle">
-                        <span class="subtitle-text" style="font-size: 1.5rem; display: block; margin-bottom: 15px;">
-                            Power BI Developer | Aprendiendo Microsoft Fabric 🚀
-                        </span>
-                        <span style="color: #ccc; font-size: 1rem; max-width: 700px; display: inline-block;">
-                            Apasionado de los datos y la tecnología. Construyendo proyectos reales.
-                        </span>
-                    </p>
+                    <p class="welcome-subtitle"><span class="subtitle-text" style="font-size: 1.5rem;">Power BI Developer | Aprendiendo Microsoft Fabric 🚀</span></p>
                 </div>
             </div>
 
             <section class="projects-section">
                 <div class="container">
                     <div class="projects-grid" style="justify-content: center;">
-                        
                         <div class="project-card project-card-featured compact-card" style="max-width: 380px; margin: 0 auto; cursor: default;">
-                            
                             <div class="project-icon" style="font-size: 2.5rem; margin-bottom: 10px;">☁️</div>
-                            
-                            <h3 class="project-title" style="font-size: 1.2rem; margin-bottom: 10px;">
-                                Pipeline End-to-End con Fabric
-                            </h3>
-                            
-                            <p class="project-description" style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">
-                                Ingeniería de datos moderna con datos públicos del INE.
-                                <br><br>
-                                🎯 <strong>Objetivo:</strong> Ingesta, limpieza (PySpark) y visualización.
-                            </p>
-                            
+                            <h3 class="project-title" style="font-size: 1.2rem; margin-bottom: 10px;">Pipeline End-to-End con Fabric</h3>
+                            <p class="project-description" style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">Ingeniería de datos moderna con datos públicos del INE.<br><br>🎯 <strong>Objetivo:</strong> Ingesta, limpieza (PySpark) y visualización.</p>
                             <div class="project-actions" style="margin-top: 15px; margin-bottom: 15px;">
-                                <a href="https://github.com/floresdelolmo-ai/End-to-End-Fabric-Renta" target="_blank" class="btn-repo" style="padding: 8px 15px; font-size: 0.8rem;">
-                                    📂 Código
-                                </a>
-                                <a href="#" class="btn-demo" onclick="alert('¡Dashboard en proceso de publicación!'); return false;" style="padding: 8px 15px; font-size: 0.8rem;">
-                                    📊 Dashboard
-                                </a>
+                                <a href="https://github.com/floresdelolmo-ai/End-to-End-Fabric-Renta" target="_blank" class="btn-repo" style="padding: 8px 15px; font-size: 0.8rem;">📂 Código</a>
+                                <a href="#" class="btn-demo" onclick="alert('¡Dashboard en proceso de publicación!'); return false;" style="padding: 8px 15px; font-size: 0.8rem;">📊 Dashboard</a>
                             </div>
-
                             <div class="tech-stack-icons" style="display: flex; gap: 15px; justify-content: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
-                                <div class="tech-tooltip" title="Microsoft Fabric">
-                                    <img src="https://img.icons8.com/fluency/48/microsoft-fabric.png" alt="Fabric" style="width: 28px; height: 28px;">
-                                </div>
-                                <div class="tech-tooltip" title="Python / PySpark">
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" style="width: 28px; height: 28px;">
-                                </div>
-                                <div class="tech-tooltip" title="Power BI">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" style="width: 28px; height: 28px;">
-                                </div>
-                                <div class="tech-tooltip" title="GitHub">
-                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" style="filter: invert(1); width: 28px; height: 28px;">
-                                </div>
+                                <div class="tech-tooltip" title="Microsoft Fabric"><img src="https://img.icons8.com/fluency/48/microsoft-fabric.png" alt="Fabric" style="width: 28px; height: 28px;"></div>
+                                <div class="tech-tooltip" title="Python / PySpark"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" style="width: 28px; height: 28px;"></div>
+                                <div class="tech-tooltip" title="Power BI"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" style="width: 28px; height: 28px;"></div>
+                                <div class="tech-tooltip" title="GitHub"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" style="filter: invert(1); width: 28px; height: 28px;"></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -118,35 +71,18 @@
 
         <div id="whoami" class="section">
             <div class="container">
-                <div class="profile-photo">
-                    <div class="profile-placeholder">👤</div>
-                </div>
-                
+                <div class="profile-photo"><div class="profile-placeholder">👤</div></div>
                 <div class="section-content">
                     <h2>Sobre mí</h2>
-                    <p class="lead" style="font-size: 1.3rem; color: #00ffff; margin-bottom: 20px;">
-                        <strong>Construyendo mi camino en el mundo de los datos.</strong>
-                    </p>
-                    <p>
-                        Soy José Manuel, un desarrollador apasionado por entender el "por qué" detrás de los datos.
-                    </p>
-                    
+                    <p class="lead" style="font-size: 1.3rem; color: #00ffff; margin-bottom: 20px;"><strong>Construyendo mi camino en el mundo de los datos.</strong></p>
+                    <p>Soy José Manuel, un desarrollador apasionado por entender el "por qué" detrás de los datos.</p>
                     <div style="margin: 30px 0;">
-                        <a href="assets/CV_Jose_Manuel_Flores_Data_Engineer.pdf" target="_blank" class="cv-download-btn">
-                            📄 Descargar mi CV
-                        </a>
+                        <a href="assets/CV_Jose_Manuel_Flores_Data_Engineer.pdf" target="_blank" class="cv-download-btn">📄 Descargar mi CV</a>
                     </div>
-
-                    <p>
-                        No lo sé todo (todavía), pero me encanta enfrentarme a problemas nuevos, buscar la solución y aprender en el proceso.
-                    </p>
                 </div>
-
                 <div class="yatawek-explanation">
                     <h3>¿Qué significa "Yatawek"?</h3>
-                    <p>
-                        <strong>Yatawek</strong> es mi filosofía de aprendizaje. Inspirado en la palabra amhárica <span class="highlight">"ያታውቃል"</span>.
-                    </p>
+                    <p><strong>Yatawek</strong> es mi filosofía de aprendizaje. Inspirado en la palabra amhárica <span class="highlight">"ያታውቃል"</span>.</p>
                 </div>
             </div>
         </div>
@@ -156,12 +92,8 @@
                 <div class="contact-section">
                     <h2>Contacto</h2>
                     <div class="contact-info">
-                        <p class="email" style="color: #00ff88; font-size: 1.4rem; font-weight: bold;">
-                            mfloresdelolmo@gmail.com
-                        </p>
-                        <p class="location" style="color: #00ffff; margin-top: 10px;">📍 Granada, España</p>
-                    </div>
-                    
+                        <p class="email" style="color: #00ff88; font-size: 1.4rem; font-weight: bold;">mfloresdelolmo@gmail.com</p>
+                        </div>
                     <div class="contact-form">
                         <form id="contactForm">
                             <div class="form-group"><input type="text" id="name" name="name" placeholder="Tu nombre" required></div>
@@ -174,13 +106,7 @@
             </div>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="copyright">&copy; 2026 <span class="author">José Manuel Flores del Olmo</span>. Yatawek.</div>
-        </div>
-    </footer>
-
+    <footer class="footer"><div class="footer-content"><div class="copyright">&copy; 2026 <span class="author">José Manuel Flores del Olmo</span>. Yatawek.</div></div></footer>
     <script src="js/script.js"></script>
 </body>
 </html>
