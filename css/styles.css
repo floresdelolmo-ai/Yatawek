@@ -24,14 +24,16 @@ body {
     display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
 }
 
-/* Logo Animado */
+/* --- LOGO YATAWEK (Ajustado: Más fino y estilizado) --- */
 .logo-header {
     display: flex; align-items: center; gap: 15px; cursor: pointer; transition: all 0.3s ease;
 }
 .logo-header:hover { transform: scale(1.02); }
+
 .data-dots-header {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 8px;
-    background: rgba(0, 255, 255, 0.1); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(0, 255, 255, 0.1); border-radius: 12px; /* Más redondeado */
+    border: 1px solid rgba(0, 255, 255, 0.3);
 }
 .dot-header {
     width: 4px; height: 4px; border-radius: 50%;
@@ -39,17 +41,19 @@ body {
     animation: blink 1.5s infinite;
 }
 .dot-header:nth-child(odd) { background: #0891b2; }
-.dot-header:nth-child(1) { animation-delay: 0s; }
-.dot-header:nth-child(2) { animation-delay: 0.3s; }
-.dot-header:nth-child(3) { animation-delay: 0.6s; }
-.dot-header:nth-child(4) { animation-delay: 0.9s; }
-.dot-header:nth-child(5) { animation-delay: 1.2s; }
-.dot-header:nth-child(6) { animation-delay: 0.15s; }
-.dot-header:nth-child(7) { animation-delay: 0.45s; }
-.dot-header:nth-child(8) { animation-delay: 0.75s; }
+/* ... delays de los dots ... */
+.dot-header:nth-child(1) { animation-delay: 0s; } .dot-header:nth-child(2) { animation-delay: 0.3s; }
+.dot-header:nth-child(3) { animation-delay: 0.6s; } .dot-header:nth-child(4) { animation-delay: 0.9s; }
+.dot-header:nth-child(5) { animation-delay: 1.2s; } .dot-header:nth-child(6) { animation-delay: 0.15s; }
+.dot-header:nth-child(7) { animation-delay: 0.45s; } .dot-header:nth-child(8) { animation-delay: 0.75s; }
 @keyframes blink { 0%, 50% { opacity: 1; transform: scale(1); } 25% { opacity: 0.4; transform: scale(1.2); } }
 
-.logo-text { font-size: 1.8rem; font-weight: 900; letter-spacing: 0.1em; }
+/* TEXTO DEL LOGO (Más fino) */
+.logo-text { 
+    font-size: 1.8rem; 
+    font-weight: 600; /* Antes era 900 (muy gordo), ahora 600 (SemiBold) */
+    letter-spacing: 0.05em; 
+}
 .logo-text .y-letter { 
     color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
     animation: pulseGreen 2s ease-in-out infinite alternate;
@@ -60,37 +64,23 @@ body {
     100% { text-shadow: 0 0 20px rgba(0, 255, 136, 1), 0 0 30px rgba(0, 255, 136, 0.5); }
 }
 
-/* --- MENÚ HORIZONTAL CORREGIDO --- */
-.nav-container {
-    display: flex;
-    align-items: center;
-}
+/* --- MENÚ ESCRITORIO --- */
+.nav-container { display: flex; align-items: center; }
 
-/* CORRECCIÓN: Usamos .nav directamente porque la clase está en el UL */
 .nav { 
     display: flex;             
-    flex-direction: row;       /* FORZAMOS FILA HORIZONTAL */
+    flex-direction: row;       /* Fila en escritorio */
     list-style: none; 
     gap: 30px; 
     align-items: center; 
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
 }
 
 .nav-link {
-    color: white; 
-    text-decoration: none; 
-    font-size: 0.95rem; 
-    position: relative;
-    padding: 8px 0; 
-    transition: all 0.3s ease; 
-    cursor: pointer;
-    font-weight: 500;
+    color: white; text-decoration: none; font-size: 0.95rem; position: relative;
+    padding: 8px 0; transition: all 0.3s ease; cursor: pointer; font-weight: 500;
 }
-
 .nav-link:hover { color: #00ffff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
-
-/* Línea animada */
 .nav-link::after {
     content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px;
     background: linear-gradient(90deg, #00ff88, #00ffff);
@@ -99,10 +89,15 @@ body {
 }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-.hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
-.hamburger span { width: 25px; height: 3px; background: #00ffff; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 2000; }
+.hamburger span { width: 25px; height: 3px; background: #00ffff; transition: 0.3s; }
 
-/* --- RESTO --- */
+/* Animación Hamburguesa */
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+/* --- RESTO DE ESTILOS --- */
 .main-content { margin-top: 100px; padding-bottom: 50px; }
 .section { display: none; animation: fadeIn 0.5s ease; }
 .section.active { display: block; }
@@ -126,9 +121,7 @@ body {
     background: linear-gradient(145deg, rgba(0, 164, 239, 0.08), rgba(0, 0, 0, 0.4));
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
-.compact-card:hover {
-    transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 164, 239, 0.15);
-}
+.compact-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 164, 239, 0.15); }
 .project-title { color: #00ffff; font-weight: 700; }
 .project-description { color: #bbb; line-height: 1.6; }
 .project-actions { display: flex; gap: 15px; justify-content: center; }
@@ -140,7 +133,6 @@ body {
 .btn-repo:hover { background: white; color: black; }
 .btn-demo { background: rgba(0, 164, 239, 0.1); color: #00A4EF; border: 1px solid #00A4EF; }
 .btn-demo:hover { background: #00A4EF; color: white; }
-
 .tech-tooltip { transition: transform 0.2s; cursor: help; }
 .tech-tooltip:hover { transform: scale(1.2); }
 
@@ -166,13 +158,11 @@ body {
 .cv-download-btn:hover {
     background: #00ff88; color: #000; box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); transform: translateY(-3px);
 }
-
 .yatawek-explanation {
     max-width: 800px; margin: 40px auto 0; padding: 30px;
     background: rgba(0, 255, 136, 0.05); border-left: 4px solid #00ff88; border-radius: 8px;
 }
 .highlight { color: #00ffff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 255, 255, 0.5); }
-
 .contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
 .contact-form input, .contact-form textarea {
     width: 100%; padding: 15px; margin-bottom: 15px;
@@ -190,7 +180,44 @@ body {
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
+/* --- MÓVIL RESPONSIVE (AQUÍ ESTÁ LA SOLUCIÓN) --- */
 @media (max-width: 768px) {
-    .nav { display: none; } .hamburger { display: flex; }
-    .welcome-title { font-size: 2.5rem; } .project-card { margin: 0 20px; }
+    .hamburger { display: flex; }
+    
+    .nav { 
+        position: fixed;
+        top: 70px; /* Ajuste altura header */
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(15px);
+        
+        /* AQUÍ ESTÁ EL TRUCO: Volvemos a columna en móvil */
+        flex-direction: column !important; 
+        
+        gap: 0;
+        padding: 20px;
+        border-top: 1px solid rgba(0, 255, 255, 0.2);
+        
+        /* Oculto por defecto */
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        height: 100vh; /* Ocupa toda la pantalla */
+    }
+
+    .nav.active {
+        transform: translateX(0); /* Se muestra al activar */
+    }
+
+    .nav-item { margin: 15px 0; width: 100%; text-align: center; }
+    
+    .nav-link { 
+        display: block; 
+        font-size: 1.2rem; 
+        padding: 10px;
+    }
+
+    .welcome-title { font-size: 2.5rem; } 
+    .project-card { margin: 0 20px; }
 }
