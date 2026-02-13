@@ -1,126 +1,123 @@
-/* --- CSS FINAL YATAWEK: LOGO ORIGINAL + FIX MÓVIL --- */
+/* --- CSS FINAL YATAWEK: TODO CENTRADO Y RESPONSIVO --- */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
     min-height: 100vh;
     font-family: 'Outfit', sans-serif;
     color: white;
-    overflow-x: hidden; /* Evita que la web baile de lado a lado en el móvil */
+    overflow-x: hidden;
 }
 
-/* --- HEADER Y LOGO (Mantenemos tu estilo original) --- */
+/* HEADER Y LOGO */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(10, 10, 10, 0.9);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-    padding: 15px 0;
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+    background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2); padding: 15px 0;
 }
 
 .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
 }
 
-.logo-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-}
-
+.logo-header { display: flex; align-items: center; gap: 12px; cursor: pointer; }
 .logo-text { font-size: 1.8rem; font-weight: 800; }
 .y-letter { color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.7); }
 .rest-letters { color: #00ffff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
 
-/* --- PUNTOS DEL LOGO --- */
 .data-dots-header {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    padding: 8px;
-    background: rgba(0, 255, 255, 0.1);
-    border-radius: 8px;
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 8px;
+    background: rgba(0, 255, 255, 0.1); border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.3);
 }
-.dot-header {
-    width: 4px; height: 4px; border-radius: 50%;
-    background: #00ffff;
-}
+.dot-header { width: 4px; height: 4px; border-radius: 50%; background: #00ffff; }
 
-/* --- NAVEGACIÓN --- */
+/* NAVEGACIÓN */
 .nav { display: flex; gap: 30px; list-style: none; }
-.nav-link {
-    color: white; text-decoration: none; font-size: 0.95rem; font-weight: 500;
-    cursor: pointer; transition: 0.3s;
-}
-.nav-link.active, .nav-link:hover { color: #00ffff; }
+.nav-link { color: white; text-decoration: none; font-size: 0.95rem; font-weight: 500; cursor: pointer; }
+.nav-link:hover, .nav-link.active { color: #00ffff; }
 
 .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
 .hamburger span { width: 25px; height: 3px; background: #00ffff; border-radius: 3px; }
 
-/* --- MAIN CONTENT --- */
-.main-content { margin-top: 100px; padding: 40px 15px; }
+/* MAIN CONTENT CENTRADO */
+.main-content { 
+    margin-top: 100px; 
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo el contenido horizontalmente */
+    text-align: center;
+}
 
-/* --- SECCIÓN PROYECTOS (EL FIX DE MOVILIDAD) --- */
+.container { width: 100%; max-width: 1200px; }
+
+/* BIENVENIDA */
+.welcome-section { margin-bottom: 40px; }
+.welcome-title { font-size: 3.5rem; color: #00ffff; font-weight: 800; margin-bottom: 10px; }
+.welcome-subtitle { font-size: 1.2rem; color: #ccc; }
+
+/* TARJETA PROYECTO */
 .projects-grid { 
     display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 30px; 
-    margin-top: 30px;
+    justify-content: center; 
+    width: 100%; 
+    margin-top: 30px; 
 }
 
 .project-card {
     background: linear-gradient(145deg, rgba(0, 164, 239, 0.08), rgba(0, 0, 0, 0.4));
     border-radius: 20px; 
-    padding: 30px; 
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-top: 4px solid #00A4EF;
     width: 100%; 
-    max-width: 400px; /* Tamaño ideal en PC */
-    margin: 0 auto;
+    max-width: 450px; /* Tamaño fijo en escritorio */
+    transition: transform 0.3s;
 }
 
-/* Ajuste específico para que no se pegue a los bordes en el móvil */
-@media (max-width: 480px) {
-    .project-card {
-        max-width: 100%; /* Usa todo el espacio que le da el contenedor con padding */
-    }
-}
+.project-card:hover { transform: translateY(-5px); }
 
 .project-icon { font-size: 3rem; margin-bottom: 15px; }
-.project-title { color: #00ffff; font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; }
-.project-description { color: #ccc; font-size: 0.9rem; margin-bottom: 25px; }
+.project-title { color: #00ffff; font-size: 1.5rem; margin-bottom: 15px; }
+.project-description { color: #ccc; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
 
-/* --- BOTONES --- */
-.project-actions { display: flex; gap: 15px; justify-content: center; }
+/* BOTONES Y TECH STACK */
+.project-actions { display: flex; gap: 15px; justify-content: center; margin-bottom: 25px; }
 .btn-repo, .btn-demo {
-    padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; 
+    display: flex; align-items: center; gap: 8px; font-size: 0.9rem;
 }
 .btn-repo { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
 .btn-demo { background: rgba(0, 164, 239, 0.1); color: #00A4EF; border: 1px solid #00A4EF; }
 
-/* --- SECCIONES --- */
-.section { display: none; }
+.tech-stack-icons { 
+    display: flex; gap: 20px; justify-content: center; 
+    padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); 
+}
+.tech-stack-icons img { width: 30px; height: 30px; object-fit: contain; }
+
+/* SECCIONES */
+.section { display: none; width: 100%; }
 .section.active { display: block; }
 
-/* --- RESPONSIVE GENERAL --- */
+/* CONTACTO */
+.contact-section { max-width: 500px; margin: 0 auto; }
+.contact-form input, .contact-form textarea {
+    width: 100%; padding: 15px; margin-bottom: 15px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; color: white; font-family: inherit;
+}
+.submit-btn {
+    width: 100%; padding: 15px; background: #00A4EF; color: white;
+    border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
+}
+
+/* FOOTER */
+.footer { width: 100%; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 60px; }
+
+/* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     .nav {
@@ -129,5 +126,6 @@ body {
         padding: 30px; transform: translateX(100%); transition: 0.3s;
     }
     .nav.active { transform: translateX(0); }
-    .welcome-title { font-size: 2.2rem; }
+    .welcome-title { font-size: 2.5rem; }
+    .project-card { padding: 30px 20px; width: 95%; } /* Fix para que no se corte en móvil */
 }
