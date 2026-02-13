@@ -1,4 +1,4 @@
-/* --- CSS FINAL YATAWEK (OUTFIT + MENÚ MÓVIL + CONTACTO FIX) --- */
+/* --- CSS FINAL YATAWEK (OUTFIT + MENÚ MÓVIL AJUSTADO) --- */
 
 * {
     margin: 0;
@@ -190,21 +190,22 @@ body {
 }
 .section-content p { color: #ccc; line-height: 1.8; margin-bottom: 15px; }
 
+/* BOTÓN LINKEDIN PERSONALIZADO */
 .cv-download-btn {
     display: inline-block; padding: 12px 25px;
-    background: rgba(0, 255, 136, 0.1); color: #00ff88;
-    border: 1px solid #00ff88; border-radius: 8px;
+    background: rgba(0, 119, 181, 0.1); color: #0077b5;
+    border: 1px solid #0077b5; border-radius: 8px;
     text-decoration: none; font-weight: bold; font-size: 1.1rem;
     transition: all 0.3s ease;
 }
-.cv-download-btn:hover { background: #00ff88; color: black; }
+.cv-download-btn:hover { background: #0077b5; color: white; }
 
 .yatawek-explanation {
     max-width: 800px; margin: 40px auto 0; padding: 30px;
     background: rgba(0, 255, 136, 0.05); border-left: 4px solid #00ff88; border-radius: 8px;
 }
 
-/* Footer y Contacto (Solo arreglamos los campos del form) */
+/* Footer y Contacto centrado */
 .footer { text-align: center; padding: 30px; font-size: 0.9rem; color: #666; border-top: 1px solid rgba(255,255,255,0.05); }
 .contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
 
@@ -233,6 +234,7 @@ body {
     
     .welcome-title { font-size: 2.2rem; }
     
+    /* El arreglo para que no se corte la tarjeta */
     .projects-grid { grid-template-columns: 1fr; padding: 0 10px; }
     .project-card { margin: 0; width: 100%; padding: 25px; }
 }
