@@ -1,4 +1,4 @@
-/* --- CSS FINAL YATAWEK (OUTFIT + MENÚ MÓVIL AJUSTADO) --- */
+/* --- CSS FINAL YATAWEK: LOGO ORIGINAL + FIX MÓVIL --- */
 
 * {
     margin: 0;
@@ -11,10 +11,10 @@ body {
     min-height: 100vh;
     font-family: 'Outfit', sans-serif;
     color: white;
-    overflow-x: hidden; /* Crucial para evitar scroll lateral en móvil */
+    overflow-x: hidden; /* Evita que la web baile de lado a lado en el móvil */
 }
 
-/* Header */
+/* --- HEADER Y LOGO (Mantenemos tu estilo original) --- */
 .header {
     position: fixed;
     top: 0;
@@ -36,153 +36,98 @@ body {
     padding: 0 20px;
 }
 
-/* LOGO */
 .logo-header {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.logo-header:hover { transform: scale(1.02); }
+.logo-text { font-size: 1.8rem; font-weight: 800; }
+.y-letter { color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.7); }
+.rest-letters { color: #00ffff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
 
-.logo-text { font-size: 1.8rem; font-weight: 800; letter-spacing: 0.05em; }
-.logo-text .y-letter { 
-    color: #00ff88; text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+/* --- PUNTOS DEL LOGO --- */
+.data-dots-header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 8px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
 }
-.logo-text .rest-letters { color: #00ffff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
+.dot-header {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: #00ffff;
+}
 
-/* Navegación Escritorio */
+/* --- NAVEGACIÓN --- */
 .nav { display: flex; gap: 30px; list-style: none; }
 .nav-link {
     color: white; text-decoration: none; font-size: 0.95rem; font-weight: 500;
-    letter-spacing: 0.05em; transition: all 0.3s ease;
-    padding: 8px 0; position: relative; cursor: pointer;
+    cursor: pointer; transition: 0.3s;
 }
-.nav-link:hover, .nav-link.active { color: #00ffff; text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); }
+.nav-link.active, .nav-link:hover { color: #00ffff; }
 
-/* Hamburguesa */
-.hamburger {
-    display: none; flex-direction: column; cursor: pointer; gap: 4px; z-index: 1001;
-}
-.hamburger span {
-    width: 25px; height: 3px; background: #00ffff; transition: all 0.3s ease; border-radius: 3px;
-}
+.hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+.hamburger span { width: 25px; height: 3px; background: #00ffff; border-radius: 3px; }
 
-/* Main Content */
-.main-content { margin-top: 100px; padding: 40px 15px; } /* Reducido padding para móvil */
-.container { max-width: 1200px; margin: 0 auto; }
+/* --- MAIN CONTENT --- */
+.main-content { margin-top: 100px; padding: 40px 15px; }
 
-/* Bienvenida */
-.welcome-section { text-align: center; padding: 40px 0 60px; }
-.welcome-title { font-size: 3.5rem; margin-bottom: 20px; color: #00ffff; font-weight: 800; }
-.welcome-subtitle { font-size: 1.3rem; color: #ccc; }
-
-/* Proyectos - FIX MÓVIL AQUÍ */
-.projects-section { padding: 20px 0; }
+/* --- SECCIÓN PROYECTOS (EL FIX DE MOVILIDAD) --- */
 .projects-grid { 
-    display: grid; 
-    /* Cambiado minmax de 400px a 100% para que no empuje el borde */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
     gap: 30px; 
-    margin-top: 30px; 
-    justify-content: center; 
+    margin-top: 30px;
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.03); 
+    background: linear-gradient(145deg, rgba(0, 164, 239, 0.08), rgba(0, 0, 0, 0.4));
     border-radius: 20px; 
     padding: 30px; 
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05); 
-    transition: all 0.3s ease;
-    width: 100%; /* Asegura que no se salga del contenedor */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 4px solid #00A4EF;
+    width: 100%; 
+    max-width: 400px; /* Tamaño ideal en PC */
     margin: 0 auto;
 }
 
-.compact-card {
-    border-top: 4px solid #00A4EF;
-    background: linear-gradient(145deg, rgba(0, 164, 239, 0.08), rgba(0, 0, 0, 0.4));
+/* Ajuste específico para que no se pegue a los bordes en el móvil */
+@media (max-width: 480px) {
+    .project-card {
+        max-width: 100%; /* Usa todo el espacio que le da el contenedor con padding */
+    }
 }
 
-.project-icon { font-size: 3rem; margin-bottom: 20px; }
+.project-icon { font-size: 3rem; margin-bottom: 15px; }
 .project-title { color: #00ffff; font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; }
-.project-description { color: #ccc; line-height: 1.6; font-size: 0.9rem; margin-bottom: 25px; }
-.project-actions { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; } /* Flex-wrap para botones en móviles pequeños */
+.project-description { color: #ccc; font-size: 0.9rem; margin-bottom: 25px; }
 
+/* --- BOTONES --- */
+.project-actions { display: flex; gap: 15px; justify-content: center; }
 .btn-repo, .btn-demo {
-    padding: 8px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px;
 }
 .btn-repo { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
 .btn-demo { background: rgba(0, 164, 239, 0.1); color: #00A4EF; border: 1px solid #00A4EF; }
 
-.tech-stack-icons { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
-.tech-tooltip img { width: 28px; }
-
-/* Secciones */
+/* --- SECCIONES --- */
 .section { display: none; }
 .section.active { display: block; }
 
-/* Whoami */
-.section-content {
-    max-width: 800px; margin: 0 auto; text-align: center;
-    background: rgba(255,255,255,0.02); padding: 30px; border-radius: 15px;
-}
-
-.cv-download-btn {
-    display: inline-block; padding: 12px 25px;
-    background: rgba(0, 255, 136, 0.1); color: #00ff88;
-    border: 1px solid #00ff88; border-radius: 8px;
-    text-decoration: none; font-weight: bold;
-}
-
-/* Contacto */
-.contact-section { text-align: center; max-width: 600px; margin: 0 auto; }
-.contact-form input, .contact-form textarea {
-    width: 100%; padding: 15px; margin-bottom: 15px;
-    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px; color: white;
-}
-.submit-btn {
-    width: 100%; padding: 15px; background: #00A4EF; color: white;
-    border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
-}
-
-.footer { text-align: center; padding: 30px; font-size: 0.9rem; color: #666; border-top: 1px solid rgba(255,255,255,0.05); }
-
-/* --- RESPONSIVE / MÓVIL --- */
+/* --- RESPONSIVE GENERAL --- */
 @media (max-width: 768px) {
     .hamburger { display: flex; }
-
     .nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(15px);
-        flex-direction: column;
-        padding: 30px 20px;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+        position: fixed; top: 70px; left: 0; right: 0;
+        background: rgba(10, 10, 10, 0.98); flex-direction: column;
+        padding: 30px; transform: translateX(100%); transition: 0.3s;
     }
-
     .nav.active { transform: translateX(0); }
-    .nav-item { width: 100%; text-align: center; }
-    .nav-link { display: inline-block; padding: 15px 0; font-size: 1.1rem; }
-    
     .welcome-title { font-size: 2.2rem; }
-    
-    /* El fix de la tarjeta para que no se vea cortada */
-    .project-card { 
-        margin: 0; 
-        padding: 25px; 
-        width: 100%; 
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
-        padding: 0 10px;
-    }
 }
