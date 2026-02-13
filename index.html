@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatawek</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzBhMGEwYSIvPgo8ZyBvcGFjaXR5PSIwLjkiPgo8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzAwZmZmZiIvPgo8cmVjdCB4PSIxMiIgeT0iNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwODkxYjIiLz4KPHJlY3QgeD0iMTgiIHk9IjYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjMDBmZmZmIi8+CjxyZWN0IHg9IjI0IiB5PSI2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzA4OTFiMiIvPgo8cmVjdCB4PSI2IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwODkxYjIiLz4KPHJlY3QgeD0iMTIiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzAwZmZmZiIvPgo8cmVjdCB4PSIxOCIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjMDg5MWIyIi8+CjxyZWN0IHg9IjI0IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwMGZmZmYiLz4KPC9nPgo8dGV4dCB4PSIxNiIgeT0iMjYiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjg4Ij5ZPC90ZXh0Pgo8L3N2Zz4K">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-header" onclick="showHome()">
+                <div class="data-dots-header">
+                    <div class="dot-header"></div><div class="dot-header"></div>
+                    <div class="dot-header"></div><div class="dot-header"></div>
+                    <div class="dot-header"></div><div class="dot-header"></div>
+                    <div class="dot-header"></div><div class="dot-header"></div>
+                </div>
+                <div class="logo-text">
+                    <span class="y-letter">Y</span><span class="rest-letters">atawek</span>
+                </div>
+            </div>
+            
+            <div class="nav-container">
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link active" onclick="showHome()">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" onclick="showSection('whoami')">Sobre mí</a></li>
+                        <li class="nav-item"><a class="nav-link" onclick="scrollToContact()">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <div id="home" class="section active">
+            
+            <div class="welcome-section" style="margin-top: -40px; margin-bottom: 20px;">
+                <div class="container">
+                    <h1 class="welcome-title">
+                        <span class="letter" data-delay="0">B</span>
+                        <span class="letter" data-delay="100">i</span>
+                        <span class="letter" data-delay="200">e</span>
+                        <span class="letter" data-delay="300">n</span>
+                        <span class="letter" data-delay="400">v</span>
+                        <span class="letter" data-delay="500">e</span>
+                        <span class="letter" data-delay="600">n</span>
+                        <span class="letter" data-delay="700">i</span>
+                        <span class="letter" data-delay="800">d</span>
+                        <span class="letter" data-delay="900">@</span>
+                    </h1>
+                    <p class="welcome-subtitle">
+                        <span class="subtitle-text" style="font-size: 1.5rem;">Power BI Developer | Aprendiendo Microsoft Fabric 🚀</span>
+                    </p>
+                </div>
+            </div>
+
+            <section class="projects-section" style="padding-top: 0;">
+                <div class="container">
+                    <div class="projects-grid" style="justify-content: center; margin-top: 20px;">
+                        
+                        <div class="project-card project-card-featured compact-card" style="max-width: 380px; margin: 0 auto; cursor: default;">
+                            
+                            <div class="project-icon" style="font-size: 2.5rem; margin-bottom: 10px;">🚕</div>
+                            <h3 class="project-title" style="font-size: 1.2rem; margin-bottom: 10px;">NYC Taxi Analytics</h3>
+                            <p class="project-description" style="font-size: 0.85rem; margin-bottom: 15px; line-height: 1.5;">
+                                Plataforma analítica End-to-End con datos reales de taxis de Nueva York.<br><br>
+                                🎯 <strong>Objetivo:</strong> Data Modeling (Star Schema), PySpark y UX Accesible.
+                            </p>
+                            
+                            <div class="project-actions" style="margin-top: 15px; margin-bottom: 15px; display: flex; gap: 15px; justify-content: center;">
+                                <a href="#" target="_blank" class="btn-repo" style="padding: 8px 15px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                                    Código
+                                </a>
+                                
+                                <a href="video.html?file=assets/img/demo_taxi.mp4&title=NYC Taxi Analytics" target="_blank" class="btn-demo" style="padding: 8px 15px; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    Ver Demo
+                                </a>
+                            </div>
+
+                            <div class="tech-stack-icons" style="display: flex; gap: 20px; justify-content: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; align-items: center;">
+                                <div class="tech-tooltip" title="Microsoft Fabric" style="display: flex; align-items: center;">
+                                    <img src="assets/logos/microsoft_fabric.png" alt="Fabric" style="width: 30px; height: 30px; object-fit: contain;">
+                                </div>
+                                
+                                <div class="tech-tooltip" title="Python / PySpark" style="display: flex; align-items: center;">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" style="width: 30px; height: 30px;">
+                                </div>
+                                
+                                <div class="tech-tooltip" title="Power BI" style="display: flex; align-items: center;">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" style="width: 30px; height: 30px;">
+                                </div>
+                                
+                                <div class="tech-tooltip" title="GitHub" style="display: flex; align-items: center;">
+                                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" style="filter: invert(1); width: 30px; height: 30px;">
+                                </div>
+                            </div>
+
+                        </div> </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="whoami" class="section">
+            <div class="container" style="display: flex; flex-direction: column; justify-content: center; min-height: 75vh;">
+                <div class="profile-photo" style="display: none;">
+                    <div class="profile-placeholder">👤</div>
+                </div>
+                
+                <div class="section-content" style="padding: 25px 40px;">
+                    <h2 style="margin-bottom: 10px;">Sobre mí</h2>
+                    <p class="lead" style="font-size: 1.2rem; color: #00ffff; margin-bottom: 15px;">
+                        <strong>Construyendo mi camino en el mundo de los datos.</strong>
+                    </p>
+                    <p style="margin-bottom: 0;">Soy José Manuel, un <strong>Data & BI Developer</strong> apasionado por entender el "por qué" detrás de los datos.</p>
+                    
+                    <div style="margin-top: 25px;">
+                        <a href="assets/CV_Flores_delOlmo_JoseManuel_2026.pdf" target="_blank" class="cv-download-btn">📄 Ver mi CV</a>
+                    </div>
+                </div>
+                
+                <div class="yatawek-explanation">
+                    <h3>¿Qué significa "Yatawek"?</h3>
+                    <p><strong>Yatawek</strong> es un proyecto que nace de la pasión por los datos y el conocimiento compartido. Inspirado en la palabra amhárica <span class="highlight">"ያታውቃል"</span> (Yatawek'al: él/ella sabe).</p>
+                    <p style="margin-top: 15px;">Creemos que los datos deben tener propósito: contar historias, conectar realidades y generar impacto positivo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="contacto" class="section">
+            <div class="container" style="display: flex; flex-direction: column; justify-content: center; min-height: 75vh;">
+                <div class="contact-section">
+                    <h2>Contacto</h2>
+                    <div class="contact-info">
+                        <p class="email" style="color: #00ff88; font-size: 1.4rem; font-weight: bold;">jfloresdelolmo@gmail.com</p>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm" action="https://formspree.io/f/mqedpggd" method="POST">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Tu email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="Tu mensaje..." rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="copyright">&copy; 2026 <span class="author">Yatawek</span></div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

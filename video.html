@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo | Yatawek</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzBhMGEwYSIvPgo8ZyBvcGFjaXR5PSIwLjkiPgo8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzAwZmZmZiIvPgo8cmVjdCB4PSIxMiIgeT0iNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwODkxYjIiLz4KPHJlY3QgeD0iMTgiIHk9IjYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjMDBmZmZmIi8+CjxyZWN0IHg9IjI0IiB5PSI2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzA4OTFiMiIvPgo8cmVjdCB4PSI2IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwODkxYjIiLz4KPHJlY3QgeD0iMTIiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzAwZmZmZiIvPgo8cmVjdCB4PSIxOCIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiIHJ4PSIyIiBmaWxsPSIjMDg5MWIyIi8+CjxyZWN0IHg9IjI0IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiMwMGZmZmYiLz4KPC9nPgo8dGV4dCB4PSIxNiIgeT0iMjYiIGZvbnQtZmFtaWx5PSJQb3BwaW5zLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iOTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMDBmZjg4Ij5ZPC90ZXh0Pgo8L3N2Zz4K">
+    
+    <style>
+        body { margin: 0; background-color: #0a0a0a; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        video { max-width: 95%; max-height: 95vh; border-radius: 8px; box-shadow: 0 0 30px rgba(0, 255, 255, 0.15); outline: none; }
+        .error-msg { color: #00ffff; font-family: 'Outfit', sans-serif; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <video id="videoPlayer" controls muted autoplay playsinline></video>
+
+    <script>
+        // 1. Leemos la URL (Ej: video.html?file=video.mov&title=Taxi)
+        const params = new URLSearchParams(window.location.search);
+        const videoFile = params.get('file');
+        const projectTitle = params.get('title');
+
+        // 2. Si le pasamos un título, lo ponemos en la pestaña
+        if (projectTitle) {
+            document.title = `Demo: ${projectTitle} | Yatawek`;
+        }
+
+        // 3. Si le pasamos un vídeo, se lo inyectamos al reproductor
+        if (videoFile) {
+            document.getElementById('videoPlayer').src = videoFile;
+        } else {
+            // Si alguien entra sin enlace, le mostramos un error elegante
+            document.body.innerHTML = '<h2 class="error-msg">⚠️ No se especificó ningún vídeo a reproducir.</h2>';
+        }
+    </script>
+</body>
+</html>
