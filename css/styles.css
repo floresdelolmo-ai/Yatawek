@@ -1,4 +1,4 @@
-/* --- CSS FINAL YATAWEK (OUTFIT + MENÚ MÓVIL AJUSTADO) --- */
+/* --- CSS FINAL YATAWEK (OUTFIT + MENÚ MÓVIL + TEMAS) --- */
 
 * {
     margin: 0;
@@ -151,23 +151,68 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease;
 }
 .compact-card {
-    padding: 30px !important; border-top: 4px solid #00A4EF;
+    padding: 30px !important; border-top: 4px solid #00A4EF; /* Fallback */
     background: linear-gradient(145deg, rgba(0, 164, 239, 0.08), rgba(0, 0, 0, 0.4));
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 .compact-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 164, 239, 0.15); }
+
+/* ========================================================== */
+/* TEMAS DE COLOR DE LOS PROYECTOS (AMARILLO Y AZUL)          */
+/* ========================================================== */
+
+/* 🚕 TEMA TAXI (AMARILLO) */
+.project-card-taxi {
+    border-top: 4px solid #FFD700 !important;
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.08), rgba(0, 0, 0, 0.4)) !important;
+}
+.project-card-taxi:hover { box-shadow: 0 20px 40px rgba(255, 215, 0, 0.15) !important; }
+.title-taxi { color: #FFD700 !important; }
+
+.btn-demo-taxi {
+    border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;
+    background: rgba(255, 215, 0, 0.1) !important; 
+    color: #FFD700 !important; 
+    border: 1px solid #FFD700 !important;
+}
+.btn-demo-taxi:hover { 
+    background: #FFD700 !important; 
+    color: #000 !important; 
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5) !important; 
+}
+
+/* ❄️ TEMA COLD CHAIN (AZUL HIELO) */
+.project-card-cold {
+    border-top: 4px solid #00E5FF !important;
+    background: linear-gradient(145deg, rgba(0, 229, 255, 0.08), rgba(0, 0, 0, 0.4)) !important;
+}
+.project-card-cold:hover { box-shadow: 0 20px 40px rgba(0, 229, 255, 0.15) !important; }
+.title-cold { color: #00E5FF !important; }
+
+.btn-demo-cold {
+    border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;
+    background: rgba(0, 229, 255, 0.1) !important; 
+    color: #00E5FF !important; 
+    border: 1px solid #00E5FF !important;
+}
+.btn-demo-cold:hover { 
+    background: #00E5FF !important; 
+    color: #000 !important; 
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5) !important; 
+}
+/* ========================================================== */
+
 .project-icon { font-size: 3rem; margin-bottom: 20px; }
 .project-title { color: #00ffff; font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; }
 .project-description { color: #ccc; line-height: 1.6; font-size: 0.9rem; margin-bottom: 25px; }
 .project-actions { display: flex; gap: 15px; justify-content: center; }
 
+/* Botones genéricos (El de Código) */
 .btn-repo, .btn-demo {
     padding: 8px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s;
 }
 .btn-repo { background: rgba(255, 255, 255, 0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
 .btn-repo:hover { background: white; color: black; }
-.btn-demo { background: rgba(0, 164, 239, 0.1); color: #00A4EF; border: 1px solid #00A4EF; }
-.btn-demo:hover { background: #00A4EF; color: white; }
 
 .tech-stack-icons { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
 .tech-tooltip img { width: 28px; transition: transform 0.2s; }
